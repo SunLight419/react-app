@@ -1,0 +1,10 @@
+.color-picker__body {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+}
+
+.color-picker__picker {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+}
