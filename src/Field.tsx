@@ -29,9 +29,14 @@ const initCellData = (h: number, w: number): CellData[] => {
 }
 
 
-export const Field = (props: {getSelectedColor: () => number}) => {
+export const Field = (props: {getSelectedColor: () => number, getShowSymbol: () => boolean}) => {
     const [cells, setCells] = useState<CellData[]>(() => initCellData(Height, Width));
     const [isMouseDown, setIsMouseDown] = useState(false);
+    const [showSymbol, setShowSymbol] = useState(false);
+
+    const handleShowSymbol = () => {
+        setShowSymbol(props.getShowSymbol());
+    }
 
 
     const handleCellClick = (id: number) => {
@@ -60,7 +65,7 @@ export const Field = (props: {getSelectedColor: () => number}) => {
         <>
             <div className='field' onMouseDown={handleMouseDown} onMouseUp={handleMouseUP}>
                 {cells.map((cell) => {
-                    return <Cell key={cell.id} id={cell.id} color={cell.color} showSymbol={true} 
+                    return <Cell key={cell.id} id={cell.id} color={cell.color} showSymbol={showSymbol} 
                     onMouseDown     ={() => handleCellClick(cell.id)}
                     onRightClick={() => handleRightClick(cell.id)}
                     onMouseEnter={() => handleMouseEnter(cell.id)} />

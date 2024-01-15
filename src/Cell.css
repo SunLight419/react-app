@@ -32,7 +32,7 @@
     background-color: orangered;
 }
 .blue-circle {
-    background-color: cyan;
+    background-color: dodgerblue;
 }
 .yellow-circle {
     background-color: yellow;
@@ -49,4 +49,5 @@
     font-size: x-large;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
 }
